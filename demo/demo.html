@@ -1,0 +1,119 @@
+<!--
+* Hardcoded list could come from AJAX
+* ng-repeat
+* Filter: filter:search
+* Filter specific values: filter:{name:search}
+* orderBy:'name'
+* orderBy:reverse
+* Order By Predicate
+* Order By predicate, second value is a reverse boolean
+* track by cat.name
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scope</title>
+    <script src="lib/angular.js"></script>
+    <script src="js/demo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body ng-app="app" ng-controller="catController">
+    <!-- <pre>{{thundercats | json}}</pre> -->
+
+    <div>
+      <input ng-model="search.name" placeholder="search by name" />
+      <input ng-model="search.planet" placeholder="search by planet" />
+      {{search}}
+    </div>
+
+    <div>
+      <select ng-model="sort.value">
+        <option value="name">sort by name</option>
+        <option value="planet">sort by planet</option>
+      </select>
+      {{sort}}
+      <input type="checkbox" ng-model="sort.reverse" />
+    </div>
+
+    <ul>
+      <li ng-repeat="cat in thundercats | filter:search | orderBy:sort.value:sort.reverse track by cat.name">
+        <img ng-src="{{::cat.image}}" />
+        <h2>{{::cat.name}}</h2>
+        <p>{{::cat.specialSkill}} - {{::cat.planet}}</p>
+      </li>
+    </ul>
+  </body>
+</html>
+
+
+
+
+
+
+<!--
+
+<pre>{{thundercats | json}}</pre>
+
+<img src="{{cat.image}}" />
+<h2>{{cat.name}}</h2>
+<p>{{cat.specialSkill}} - {{cat.planet}}</p>
+
+<div>
+  <input ng-model="search" placeholder="search" />
+</div>
+
+<div>
+  <input ng-model="search.name" placeholder="search by name" />
+  <input ng-model="search.planet" placeholder="search by planet" />{{search}}
+</div>
+
+<div>
+  <select ng-model="sort.value">
+    <option value="name">sort by name</option>
+    <option value="planet">sort by planet</option>
+  </select>
+  {{sort}}
+  <input type="checkbox" ng-model="sort.reverse" />
+</div>
+
+<a href="" ng-click="sort.reverse=!sort.reverse">
+  {{sort.reverse ? 'descending' : 'ascending'}}
+</a>
+
+<pre>{{thundercats | json}}</pre>
+<pre>{{thundercats | json}}</pre>
+<button ng-click="inspectScope()">Click</button>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Initial state -->
+
+
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scope</title>
+    <script src="lib/angular.js"></script>
+    <script src="js/demo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body ng-app="app" ng-controller="catController">
+
+  </body>
+</html>
+-->
