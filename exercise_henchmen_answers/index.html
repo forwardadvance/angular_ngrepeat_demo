@@ -6,30 +6,27 @@
     <script src="js/demo.js"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
-  <body ng-app="app" ng-controller="catController">
-    <!-- <pre>{{thundercats | json}}</pre> -->
+  <body ng-app="app" ng-controller="HenchmenController">
 
     <div>
       <input ng-model="search.name" placeholder="search by name" />
-      <input ng-model="search.planet" placeholder="search by planet" />
       {{search}}
     </div>
 
     <div>
       <select ng-model="sort.value">
         <option value="name">sort by name</option>
-        <option value="planet">sort by planet</option>
+        <option value="evil">sort by evilness</option>
       </select>
       {{sort}}
       <input type="checkbox" ng-model="sort.reverse" />
     </div>
 
-    <ul>
-      <li ng-repeat="cat in thundercats | filter:search | orderBy:sort.value:sort.reverse track by cat.name">
-        <img ng-src="{{::cat.image}}" />
-        <h2>{{::cat.name}}</h2>
-        <p>{{::cat.specialSkill}} - {{::cat.planet}}</p>
+    <ol>
+      <li ng-repeat="henchman in henchmen | filter:search | orderBy:sort.value:sort.reverse track by henchman.name">
+        <h2>Name: {{::henchman.name}}</h2>
+        <p>Evil Rating: {{::henchman.evilness}}</p>
       </li>
-    </ul>
+    </ol>
   </body>
 </html>
