@@ -2,15 +2,12 @@ describe('catController', function() {
 
   beforeEach(module('app'));
 
-  var scope;
-  beforeEach(inject(function($controller, $rootScope) {
-    scope = $rootScope.$new();
-    $controller('catController', {
-      $scope: scope
-    });
+  var controller;
+  beforeEach(inject(function($controller, cats) {
+    controller = $controller('catController', {cats: cats})
   }));
 
   it('catController instantiates thundercats', function() {
-    expect(scope.cats).toBeDefined();
+    expect(controller.cats).toBeDefined();
   });
 });
