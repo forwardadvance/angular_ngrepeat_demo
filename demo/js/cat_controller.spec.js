@@ -1,4 +1,4 @@
-describe('Unit: catController', function() {
+describe('catController', function() {
 
   beforeEach(module('app'));
 
@@ -11,6 +11,6 @@ describe('Unit: catController', function() {
   }));
 
   it('catController instantiates thundercats', function() {
-    expect(scope.thundercats).toBeDefined();
+    expect(scope.cats).toBeDefined();
   });
 });
